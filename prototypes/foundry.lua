@@ -23,10 +23,12 @@ data:extend({
     result = "foundry",
     enabled = false,
     ingredients = {
-      {"stone-brick", 10}, 
+      {"stone-brick", 20}, 
       {"iron-plate", 10}, 
       {"copper-plate", 5},
-      (data.raw.item["silica"] and data.raw.technology["silica-processing"] and {"silica", 20} or nil),
+      (mods.bzlead and {"lead-plate", 10} or nil), 
+      ((mods.Krastorio2 or mods["aai-industry"]) and {"sand", 10}) or 
+      (data.raw.item["silica"] and data.raw.technology["silica-processing"] and {"silica", 20}) or nil,
     },
   },
   {
@@ -48,7 +50,13 @@ data:extend({
   },
    
 })
-util.add_prerequisite("foundry", "silica-processing")
+if mods.Krastorio2 then
+  util.add_prerequisite("foundry", "kr-stone-processing")
+elseif mods["aai-industry"] then
+  util.add_prerequisite("foundry", "sand-processing")
+else
+  util.add_prerequisite("foundry", "silica-processing")
+end
 
 data:extend({
   {
@@ -62,6 +70,12 @@ data:extend({
     stack_size = 50
   },
   {
+  {
+		type = "bool-setting",
+		name = "bzfoundry-smelt",
+		setting_type = "startup",
+		default_value = false,
+	},
     type = "recipe",
     name = "electric-foundry",
     result = "electric-foundry",
@@ -69,7 +83,8 @@ data:extend({
     ingredients = {
       {"foundry", 1},
       {"steel-plate", 10},
-      {"advanced-circuit", 4},
+      {"processing-unit", 4},
+      {"concrete", 10},
       (data.raw.item["zirconia"] and {"zirconia", 10} or {"stone-brick", 10}), 
       (data.raw.item["tungsten-plate"] and {"tungsten-plate", 5} or nil),
     },

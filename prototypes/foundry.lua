@@ -39,7 +39,7 @@ data:extend({
     prerequisites = {"automation"},
     effects = {
       {type = "unlock-recipe", recipe = "foundry"},
-      util.carbonrecipe() and {type = "unlock-recipe", recipe = util.carbonrecipe()},
+      util.me.carbonrecipe() and {type = "unlock-recipe", recipe = util.me.carbonrecipe()},
     },
     unit = {
       count = 25,

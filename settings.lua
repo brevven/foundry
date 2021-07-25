@@ -19,4 +19,10 @@ data:extend({
 		setting_type = "startup",
 		default_value = false,
 	},
+  {
+		type = "string-setting",
+		name = "bzfoundry-other-machines",
+		setting_type = "startup",
+		default_value = "kr-advanced-furnace",
+	},
 })

@@ -1,7 +1,6 @@
 local util = require("data-util")
 
-
-if util.carbon() == "coke" and not data.raw.item["coke"] then
+if util.me.carbon() == "coke" and not data.raw.item["coke"] then
 data:extend({
   {
     type = "item",
@@ -32,7 +31,7 @@ data:extend({
     enabled=false,
   },
 })
-elseif util.carbon() == "solid-fuel" then
+elseif util.me.carbon() == "solid-fuel" then
 data:extend({
   {
     type = "recipe",

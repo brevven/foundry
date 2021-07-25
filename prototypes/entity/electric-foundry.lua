@@ -26,8 +26,9 @@ data:extend({
     },
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
     selection_box = {{-2, -2}, {2, 2}},
-    crafting_categories = {"founding", futil.smelt() and "smelting" or nil},
-    energy_usage = "90kW",
+    crafting_categories = {"founding", futil.me.smelt() and "smelting" or nil},
+    energy_usage = "360kW",
+    drain = "12kW",
     crafting_speed = 4,
     energy_source =
     {

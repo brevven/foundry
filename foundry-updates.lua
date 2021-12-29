@@ -8,10 +8,12 @@ util.add_prerequisite("steel-processing", "foundry")
 util.set_to_founding("tungsten-carbide")
 util.add_ingredient("tungsten-carbide", util.me.carbon(), 1)
 
+
 util.set_to_founding("silicon")
 util.add_ingredient("silicon", util.me.carbon(), 1)
 
-util.set_to_founding("cermet")
+util.set_to_founding("cermet")  -- from zirconium
+util.set_to_founding("crucible") -- from graphite
 
 -- K2
 for i, machine in pairs(util.me.get_other_machines()) do

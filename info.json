@@ -1,6 +1,6 @@
 {
     "name": "bzfoundry",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "factorio_version": "1.1",
     "title": "Foundry",
     "author": "Brevven",
@@ -11,6 +11,7 @@
       "? bzsilicon",
       "? bztungsten",
       "? bzzirconium",
+      "rusty-locale",
       "base >= 1.1.0"
     ],
     "description": "Adds a foundry building for making alloys, etc."

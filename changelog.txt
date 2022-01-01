@@ -1,8 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.6
-Date: 2021-12-30
-  Changes:
+Date: 2022-01-01
+  Features:
     - Graphite compatibility - crucible
+    - New option to enable more efficient founding of plates using refractory materials
+  Fixes:
+    - Steel time adjustment fix
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.5
 Date: 2021-08-20

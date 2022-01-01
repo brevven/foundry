@@ -25,4 +25,11 @@ data:extend({
 		setting_type = "startup",
 		default_value = "kr-advanced-furnace",
 	},
+  {
+		type = "string-setting",
+		name = "bzfoundry-plates",
+		setting_type = "startup",
+		default_value = "no",
+    allowed_values = {"yes", "no"},
+	},
 })

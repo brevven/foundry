@@ -50,6 +50,7 @@ data:extend({
   },
    
 })
+
 if mods.Krastorio2 then
   util.add_prerequisite("foundry", "kr-stone-processing")
 elseif mods["aai-industry"] then
@@ -110,3 +111,28 @@ data:extend({
   },
    
 })
+
+if mods.bzcarbon and util.me.founding_plates() then
+data:extend({
+  {
+    type = "technology",
+    name = "advanced-founding",
+    icons = {
+      {icon = "__bzfoundry__/graphics/icons/technology/foundry.png", icon_size = 256},
+      {icon = "__bzcarbon__/graphics/icons/graphite.png", icon_size = 128, shift={-32, -32}},
+    },
+    effects = {},
+    prerequisites = {"electric-foundry", "utility-science-pack"},
+    unit = {
+      count = 1000,
+      ingredients = {{"automation-science-pack", 1},
+                     {"logistic-science-pack", 1},
+                     {"chemical-science-pack", 1},
+                     {"production-science-pack", 1},
+                     {"utility-science-pack", 1}},
+      time = 60,
+    },
+    order = "foundry",
+  }
+})
+end

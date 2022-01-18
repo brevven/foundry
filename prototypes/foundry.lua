@@ -6,6 +6,14 @@ data:extend({
   { type = "item-subgroup", name = "foundry-intermediate", group = "intermediate-products"},
 })
 
+local foundry_ingredients = {{"stone-brick", 20}, {"iron-plate", 10}, {"copper-plate", 5}}
+if mods.bzlead then table.insert(foundry_ingredients, {"lead-plate", 8}) end
+if mods.Krastorio2 or mods["aai-industry"] then
+  table.insert(foundry_ingredients, {"sand", 10})
+elseif data.raw.item["silica"] and data.raw.technology["silica-processing"] then
+  table.insert(foundry_ingredients, {"silica", 20})
+end
+
 data:extend({
   {
     type = "item",
@@ -22,14 +30,7 @@ data:extend({
     name = "foundry",
     result = "foundry",
     enabled = false,
-    ingredients = {
-      {"stone-brick", 20}, 
-      {"iron-plate", 10}, 
-      {"copper-plate", 5},
-      (mods.bzlead and {"lead-plate", 10} or nil), 
-      ((mods.Krastorio2 or mods["aai-industry"]) and {"sand", 10}) or 
-      (data.raw.item["silica"] and data.raw.technology["silica-processing"] and {"silica", 20}) or nil,
-    },
+    ingredients = foundry_ingredients,
   },
   {
     type = "technology",

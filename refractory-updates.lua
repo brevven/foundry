@@ -106,21 +106,21 @@ function make_recipe(recipe)
 
     if not has_normal and not has_exp then
       r.results = new_results
-      make_ingredients_and_products(r)
+      make_ingredients_and_products(r, r.name)
     end
     if has_normal then
       r.normal.results = new_normal_results
       r.normal.result = nil
       r.normal.result_count = nil
       r.normal.enabled = false
-      make_ingredients_and_products(r.normal)
+      make_ingredients_and_products(r.normal, r.name)
     end
     if has_exp then
       r.expensive.results = new_exp_results
       r.expensive.result = nil
       r.expensive.result_count = nil
       r.expensive.enabled = false
-      make_ingredients_and_products(r.expensive)
+      make_ingredients_and_products(r.expensive, r.name)
     end
     return r
   end
@@ -129,16 +129,17 @@ end
 
 
 -- Gets refractories for a recipe (currently all recipes use same refractories)
-function get_refractories(recipe)
+-- TODO make this more varied and interesting based on reality
+function get_refractories(recipe, name)
   local refractories = {}
   if mods.bzcarbon then table.insert(refractories, "graphite") end
   if mods.bzsilicon then table.insert(refractories, "silica") end
-  if #refractories < 2 and mods.bzzirconium then table.insert("zirconia") end
+  if #refractories < 2 and mods.bzzirconium and name ~= "zirconium-plate-refractory" then table.insert(refractories, "zirconia") end
   return refractories
 end
 
-function make_ingredients_and_products(r)
-  local refractories = get_refractories(r)
+function make_ingredients_and_products(r, name)
+  local refractories = get_refractories(r, name)
   local max_count = 1
   for i, ingredient in pairs(r.ingredients) do
     if ingredient[2] and ingredient[2] > max_count then

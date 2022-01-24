@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.9
+Date: 2022-01-25
+  Changes:
+    - Add deadlock stacking recipe for coke
+    - Add entity-description strings (due to minor issue with SE)
+---------------------------------------------------------------------------------------------------
 Version: 0.0.8
 Date: 2022-01-08
   Changes:

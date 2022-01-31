@@ -104,6 +104,9 @@ function make_recipe(recipe)
         or (mods.bzzirconium and
             { icon = "__bzzirconium__/graphics/icons/zirconia.png",
               icon_size = 128, scale=0.125, icon_mipmaps = 3, shift={8, -8}})
+        or (mods.bzaluminum and
+            { icon = "__bzaluminum__/graphics/icons/alumina.png",
+              icon_size = 128, scale=0.125, icon_mipmaps = 3, shift={8, -8}})
         or nil
     )
     r.icons = icons
@@ -141,6 +144,8 @@ function get_refractories(recipe, name)
   if mods.bzcarbon then table.insert(refractories, "graphite") end
   if mods.bzsilicon then table.insert(refractories, "silica") end
   if #refractories < 2 and mods.bzzirconium and name ~= "zirconium-plate-refractory" then table.insert(refractories, "zirconia") end
+  if #refractories < 2 and mods.bzaluminum and name ~= "aluminum-plate-refractory" then table.insert(refractories, "alumina") end
+  if #refractories < 2 then table.insert(refractories, "stone-brick") end
   return refractories
 end
 
@@ -189,7 +194,7 @@ function get_probability(n)
   return roots[n]
 end
 
-if util.me.founding_plates() and (mods.bzcarbon or mods.bzsilicon or mods.bzzirconium)  then
+if util.me.founding_plates() and (mods.bzcarbon or mods.bzsilicon or mods.bzzirconium or mods.bzaluminum)  then
   local new_recipes = {}
   for name, recipe in pairs(data.raw.recipe) do 
     if recipe.category ~= "smelting" then goto continue end

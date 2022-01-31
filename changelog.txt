@@ -7,6 +7,8 @@ Date: 2022-01-31
       saving your game.
     - Fix some refractory recipes when used without certain mods
     - Fix some refractory recipe product amounts
+  Changes:
+    - Minor compatibility updates
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.9
 Date: 2022-01-25

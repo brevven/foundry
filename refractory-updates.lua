@@ -103,11 +103,12 @@ function make_recipe(recipe)
               icon_size = 64, scale=0.25, icon_mipmaps = 3, shift={8, -8}})
         or (mods.bzzirconium and
             { icon = "__bzzirconium__/graphics/icons/zirconia.png",
-              icon_size = 128, scale=0.125, icon_mipmaps = 3, shift={8, -8}})
+              icon_size = 128, scale=0.125, shift={8, -8}})
         or (mods.bzaluminum and
             { icon = "__bzaluminum__/graphics/icons/alumina.png",
-              icon_size = 128, scale=0.125, icon_mipmaps = 3, shift={8, -8}})
-        or nil
+              icon_size = 128, scale=0.125, shift={8, -8}})
+        or { icon = "__base__/graphics/icons/stone-brick.png",
+             icon_size = 64, scale=0.25, icon_mipmaps = 4, shift={8, -8}}
     )
     r.icons = icons
     locale = rusty_locale.of_recipe(data.raw.recipe[recipe.name])
@@ -194,7 +195,7 @@ function get_probability(n)
   return roots[n]
 end
 
-if util.me.founding_plates() and (mods.bzcarbon or mods.bzsilicon or mods.bzzirconium or mods.bzaluminum)  then
+if util.me.founding_plates() then
   local new_recipes = {}
   for name, recipe in pairs(data.raw.recipe) do 
     if recipe.category ~= "smelting" then goto continue end

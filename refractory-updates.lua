@@ -93,13 +93,19 @@ function make_recipe(recipe)
     r.category = "founding"
     r.subgroup = data.raw.item[found_result].subgroup
     icons = rusty_icons.of(data.raw.recipe[recipe.name])
-    table.insert(icons,
-        mods.bzcarbon and
-        { icon = "__bzcarbon__/graphics/icons/graphite-2.png",
-          icon_size = 128, scale=0.125, shift={8, -8}}
-        or
-        { icon = "__bzsilicon__/graphics/icons/silica.png",
-          icon_size = 64, scale=0.25, icon_mipmaps = 3, shift={8, -8}})
+    table.insert(
+        icons,
+        (mods.bzcarbon and
+         { icon = "__bzcarbon__/graphics/icons/graphite-2.png",
+           icon_size = 128, scale=0.125, shift={8, -8}})
+        or (mods.bzsilicon and
+            { icon = "__bzsilicon__/graphics/icons/silica.png",
+              icon_size = 64, scale=0.25, icon_mipmaps = 3, shift={8, -8}})
+        or (mods.bzzirconium and
+            { icon = "__bzzirconium__/graphics/icons/zirconia.png",
+              icon_size = 128, scale=0.125, icon_mipmaps = 3, shift={8, -8}})
+        or nil
+    )
     r.icons = icons
     locale = rusty_locale.of_recipe(data.raw.recipe[recipe.name])
     r.localised_name = {"recipe-name.with-refractory", locale.name}

@@ -19,7 +19,7 @@ function check_name(name)
 end
 
 function make_recipe(recipe)
-  log("checking "..recipe.name)
+  log("Checking "..recipe.name)
   local found_result = false
   local has_normal = false
   local has_exp = false
@@ -60,7 +60,7 @@ function make_recipe(recipe)
 
     if recipe.normal.result and check_name(recipe.normal.result) then
       found_result = recipe.normal.result
-      new_normal_results = {{recipe.normal.result, recipe.result_count or 1}}
+      new_normal_results = {{recipe.normal.result, recipe.normal.result_count or 1}}
     end
   end
 

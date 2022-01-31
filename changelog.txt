@@ -6,6 +6,7 @@ Date: 2022-01-31
       WARNING: If you use these recipes, update your refractory recipes setting before
       saving your game.
     - Fix some refractory recipes when used without certain mods
+    - Fix some refractory recipe product amounts
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.9
 Date: 2022-01-25

@@ -3,7 +3,7 @@ local me =  {}
 me.name = "bzfoundry"
 
 function me.founding_plates()
-  return me.get_setting("bzfoundry-plates")
+  return me.get_setting("bzfoundry-plates") == "yes"
 end
 
 function me.smelt()

@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.10
+Date: 2022-01-31
+  Fixes:
+    - Fix default setting for refractory recipes.
+      WARNING: If you use these recipes, update your refractory recipes setting before
+      saving your game.
+---------------------------------------------------------------------------------------------------
 Version: 0.0.9
 Date: 2022-01-25
   Changes:

@@ -114,39 +114,84 @@ data:extend({
 })
 
 if util.me.founding_plates() then
-data:extend({
-  {
-    type = "technology",
-    name = "advanced-founding",
-    icons = {
-      {icon = "__bzfoundry__/graphics/icons/technology/foundry.png", icon_size = 256},
-      (mods.bzcarbon and
-       { icon = "__bzcarbon__/graphics/icons/graphite-2.png",
-         icon_size = 128, scale=0.5, shift={32, -32}})
-      or (mods.bzsilicon and
-          { icon = "__bzsilicon__/graphics/icons/silica.png",
-            icon_size = 64, scale=1, icon_mipmaps = 3, shift={32, -32}})
-      or (mods.bzzirconium and
-          { icon = "__bzzirconium__/graphics/icons/zirconia.png",
-            icon_size = 128, scale=0.5, shift={32, -32}})
-      or (mods.bzaluminum and
-          { icon = "__bzaluminum__/graphics/icons/alumina.png",
-            icon_size = 128, scale=0.5, shift={32, -32}})
-      or { icon = "__base__/graphics/icons/stone-brick.png",
-           icon_size = 64, scale=1, icon_mipmaps = 4, shift={32, -32}}
-    },
-    effects = {},
-    prerequisites = {"electric-foundry", "utility-science-pack"},
-    unit = {
-      count = 1000,
-      ingredients = {{"automation-science-pack", 1},
-                     {"logistic-science-pack", 1},
-                     {"chemical-science-pack", 1},
-                     {"production-science-pack", 1},
-                     {"utility-science-pack", 1}},
-      time = 60,
-    },
-    order = "foundry",
-  }
-})
+  data:extend({
+    {
+      type = "technology",
+      name = "advanced-founding",
+      icons = {
+        {icon = "__bzfoundry__/graphics/icons/technology/foundry.png", icon_size = 256},
+        (mods.bzcarbon and
+         { icon = "__bzcarbon__/graphics/icons/graphite-2.png",
+           icon_size = 128, scale=0.5, shift={32, -32}})
+        or (mods.bzsilicon and
+            { icon = "__bzsilicon__/graphics/icons/silica.png",
+              icon_size = 64, scale=1, icon_mipmaps = 3, shift={32, -32}})
+        or (mods.bzzirconium and
+            { icon = "__bzzirconium__/graphics/icons/zirconia.png",
+              icon_size = 128, scale=0.5, shift={32, -32}})
+        or (mods.bzaluminum and
+            { icon = "__bzaluminum__/graphics/icons/alumina.png",
+              icon_size = 128, scale=0.5, shift={32, -32}})
+        or { icon = "__base__/graphics/icons/stone-brick.png",
+             icon_size = 64, scale=1, icon_mipmaps = 4, shift={32, -32}}
+      },
+      effects = {},
+      prerequisites = {"electric-foundry", "utility-science-pack"},
+      unit = {
+        count = 1000,
+        ingredients = {{"automation-science-pack", 1},
+                       {"logistic-science-pack", 1},
+                       {"chemical-science-pack", 1},
+                       {"production-science-pack", 1},
+                       {"utility-science-pack", 1}},
+        time = 60,
+      },
+      order = "foundry",
+    }
+  })
+  if mods["space-exploration"] then
+    data:extend({
+      {
+        type = "technology",
+        name = "advanced-founding-space",
+        icons = {
+          {icon = "__bzfoundry__/graphics/icons/technology/foundry.png", icon_size = 256},
+          (mods.bzcarbon and
+           { icon = "__bzcarbon__/graphics/icons/graphite-2.png",
+             icon_size = 128, scale=0.5, shift={32, -32}})
+          or (mods.bzsilicon and
+              { icon = "__bzsilicon__/graphics/icons/silica.png",
+                icon_size = 64, scale=1, icon_mipmaps = 3, shift={32, -32}})
+          or (mods.bzzirconium and
+              { icon = "__bzzirconium__/graphics/icons/zirconia.png",
+                icon_size = 128, scale=0.5, shift={32, -32}})
+          or (mods.bzaluminum and
+              { icon = "__bzaluminum__/graphics/icons/alumina.png",
+                icon_size = 128, scale=0.5, shift={32, -32}})
+          or { icon = "__base__/graphics/icons/stone-brick.png",
+               icon_size = 64, scale=1, icon_mipmaps = 4, shift={32, -32}}
+        },
+        effects = {},
+        prerequisites = {
+          "advanced-founding",
+          "se-processing-holmium",
+          "se-processing-iridium",
+          "se-processing-beryllium",
+        },
+        unit = {
+          count = 1000,
+          ingredients = {
+            {"automation-science-pack", 1},
+            {"logistic-science-pack", 1},
+            {"chemical-science-pack", 1},
+            {"production-science-pack", 1},
+            {"utility-science-pack", 1},
+            {"se-rocket-science-pack", 1},
+          },
+          time = 60,
+        },
+        order = "foundry",
+      }
+    })
+  end
 end

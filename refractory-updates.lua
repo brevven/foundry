@@ -10,6 +10,14 @@ function has_suffix(s, suffix)
   return string.sub(s, -string.len(suffix), -1) == suffix
 end
 
+function has_prefix(s, prefix)
+  return string.sub(s, 1, string.len(prefix)) == prefix
+end
+
+function is_space(name) 
+  return name:match("holmium") or name:match("beryllium") or name:match("iridium")
+end
+
 local suffixes = {"-plate", "-ingot"}
 function check_name(name)
   for i, suffix in pairs(suffixes) do
@@ -211,7 +219,11 @@ if util.me.founding_plates() then
   data:extend(new_recipes)
   for i, recipe in pairs(new_recipes) do
     -- recipe unlock
-    util.add_effect("advanced-founding", {type="unlock-recipe", recipe=recipe.name})
+    if is_space(recipe.name) and data.raw.technology["advanced-founding-space"] then
+      util.add_effect("advanced-founding-space", {type="unlock-recipe", recipe=recipe.name})
+    else
+      util.add_effect("advanced-founding", {type="unlock-recipe", recipe=recipe.name})
+    end
     
     -- prod modules
     for j, module in pairs(data.raw.module) do

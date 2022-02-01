@@ -199,7 +199,9 @@ if util.me.founding_plates() then
   local new_recipes = {}
   for name, recipe in pairs(data.raw.recipe) do 
     if recipe.category ~= "smelting" then goto continue end
-    if name == "steel-plate" or name == "se-naquium-ingot" then goto continue end
+    if (name == "steel-plate" or
+        name == "imersium-plate" or
+        name == "se-naquium-ingot") then goto continue end
     local new_recipe = make_recipe(recipe)
     if new_recipe then
       table.insert(new_recipes, new_recipe)

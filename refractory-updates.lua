@@ -15,6 +15,7 @@ function check_name(name)
   for i, suffix in pairs(suffixes) do
     if has_suffix(name, suffix) then return true end
   end
+  if name == "rare-metals" then return true end
   return false
 end
 

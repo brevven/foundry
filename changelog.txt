@@ -3,6 +3,7 @@ Version: 0.0.11
 Date: 2022-02-02
   Changes:
     - Refractory recipes: Remove "Imersium Plate" recipe - was not meant for endgame materials.
+    - Refractory recipes: Add "rare-metals" recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.10
 Date: 2022-01-31

@@ -19,7 +19,6 @@ function check_name(name)
 end
 
 function make_recipe(recipe)
-  log("Checking "..recipe.name)
   local found_result = false
   local has_normal = false
   local has_exp = false

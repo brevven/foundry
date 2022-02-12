@@ -1,6 +1,10 @@
 require("util")
 local futil = require("data-util")
 
+local fuel = {"chemical"}
+if mods.Krastorio2 then table.insert(fuel, "vehicle-fuel") end
+if mods["aai-industry"] then table.insert(fuel, "processed-chemical") end
+
 data:extend({
   {
     type = "assembling-machine",
@@ -32,7 +36,7 @@ data:extend({
     energy_source =
     {
       type = "burner",
-      fuel_category = "chemical",
+      fuel_categories = fuel,
       effectivity = 1,
       emissions_per_minute = 8,
       fuel_inventory_size = 1,

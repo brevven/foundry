@@ -2,6 +2,7 @@
 Version: 0.0.12
 Date: 2022-02-12
   Fixes:
+    - Processed fuel works in foundries with K2 + AAI Industry both enabled, once again.
     - Refractory recipes: Productivity no longer applies to refractories
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.11

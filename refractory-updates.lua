@@ -192,7 +192,7 @@ function make_ingredients_and_products(r, name)
     end
   end
   for i, refractory in pairs(refractories) do
-    table.insert(r.results, {type="item", name=refractory, amount=max_count,
+    table.insert(r.results, {type="item", name=refractory, amount=max_count, catalyst_amount=max_count,
         probability=get_probability(#refractories)})
   end
 end

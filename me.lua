@@ -10,6 +10,10 @@ function me.smelt()
   return me.get_setting("bzfoundry-smelt")
 end
 
+function me.enable()
+  return not me.get_setting("bzfoundry-minimal")
+end
+
 function me.carbon()
   return me.get_setting("bzfoundry-hydrocarbon")
 end

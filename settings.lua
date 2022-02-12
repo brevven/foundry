@@ -32,4 +32,11 @@ data:extend({
 		default_value = "no",
     allowed_values = {"yes", "no"},
 	},
+  {
+		type = "bool-setting",
+		name = "bzfoundry-minimal",
+		setting_type = "startup",
+		default_value = false,
+    hidden = not mods.bzaluminum
+	},
 })

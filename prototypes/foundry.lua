@@ -1,11 +1,5 @@
 local util = require("data-util")
 
-data:extend({
-  { type = "recipe-category", name = "founding"},
-  { type = "item-subgroup", name = "founding-machines", group = "production"},
-  { type = "item-subgroup", name = "foundry-intermediate", group = "intermediate-products"},
-})
-
 local foundry_ingredients = {{"stone-brick", 20}, {"iron-plate", 10}, {"copper-plate", 5}}
 if mods.bzlead then table.insert(foundry_ingredients, {"lead-plate", 8}) end
 if mods.Krastorio2 or mods["aai-industry"] then

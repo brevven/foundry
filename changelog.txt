@@ -1,6 +1,12 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.12
 Date: 2022-02-12
+  Features:
+    - Minimal mode setting. Only visible and used for certain mods (like Aluminum).
+      Intended as a workaround due to the way required dependencies work in Factorio.
+      Disables foundry buildings and many recipe changes. Intended to allow people to opt out of 
+      using Foundry buildings while still letting Foundry be a required dependency for certain
+      other mods (like Aluminum). Founding will happen in assemblers.
   Fixes:
     - Processed fuel works in foundries with K2 + AAI Industry both enabled, once again.
     - Refractory recipes: Productivity no longer applies to refractories

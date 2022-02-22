@@ -15,3 +15,7 @@ See LICENSE
 ## Created by
 
 - [brevven](https://mods.factorio.com/user/brevven) (code, design, graphics)
+
+### Localization
+
+- [x2605](https://github.com/x2605) (ko)

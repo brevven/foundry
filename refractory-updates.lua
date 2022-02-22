@@ -41,7 +41,7 @@ function make_recipe(recipe)
     for i, result in pairs(recipe.results) do
       if (result.name and check_name(result.name)) or 
         (result[1] and check_name(result[1])) then
-        found_result = result.name
+        found_result = result.name and result.name or result[1]
         new_results = futil.table.deepcopy(recipe.results)
         break
       end
@@ -59,7 +59,7 @@ function make_recipe(recipe)
       for i, result in pairs(recipe.normal.results) do
         if (result.name and check_name(result.name)) or 
           (result[1] and check_name(result[1])) then
-          found_result = result.name
+        found_result = result.name and result.name or result[1]
           new_normal_results = futil.table.deepcopy(recipe.normal.results)
           break
         end
@@ -78,7 +78,7 @@ function make_recipe(recipe)
       for i, result in pairs(recipe.expensive.results) do
         if (result.name and check_name(result.name)) or 
           (result[1] and check_name(result[1])) then
-          found_result = result.name
+          found_result = result.name and result.name or result[1]
           new_exp_results = futil.table.deepcopy(recipe.expensive.results)
           break
         end
@@ -87,7 +87,7 @@ function make_recipe(recipe)
 
     if recipe.expensive.result and check_name(recipe.expensive.result) then
       found_result = recipe.expensive.result
-      new_exp_results = {{recipe.expensive.result, recipe.result_count or 1}}
+      new_exp_results = {{recipe.expensive.result, recipe.expensive.result_count or 1}}
     end
   end
 

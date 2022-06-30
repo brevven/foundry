@@ -29,7 +29,7 @@ else
       end
     end
   end
-  util.add_crafting_category("assembling-machine", "inustrial-furnace", "founding")
+  util.add_crafting_category("assembling-machine", "industrial-furnace", "founding")
   util.add_crafting_category("assembling-machine", "kr-advanced-furnace", "founding")
 end
 

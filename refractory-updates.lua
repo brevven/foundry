@@ -24,6 +24,7 @@ function check_name(name)
     if has_suffix(name, suffix) then return true end
   end
   if name == "rare-metals" then return true end
+  if name == "tungsten-carbide" then return true end
   return false
 end
 
@@ -98,7 +99,7 @@ function make_recipe(recipe)
     r.result = nil
     r.result_count = nil
     r.enabled = false
-    r.category = "founding"
+    r.category = recipe.category == "casting" and "casting" or "founding"
     r.subgroup = data.raw.item[found_result].subgroup
     icons = rusty_icons.of(data.raw.recipe[recipe.name])
     table.insert(
@@ -169,8 +170,13 @@ function make_ingredients_and_products(r, name)
       max_count = ingredient.amount
     end
   end
+  local refractory_amount = max_count
+  -- For space exploration, most ingots use 25 times less refractory
+  if mods["space-exploration"] and (has_suffix(name, "-ingot-refractory") or name == "tungsten-carbide-casting-refractory") then
+      if refractory_amount > 25 then refractory_amount = refractory_amount / 25 end
+  end
   for i, refractory in pairs(refractories) do
-    table.insert(r.ingredients, {refractory, max_count})
+    table.insert(r.ingredients, {refractory, refractory_amount})
   end
 
   for i, result in pairs(r.results) do
@@ -192,7 +198,7 @@ function make_ingredients_and_products(r, name)
     end
   end
   for i, refractory in pairs(refractories) do
-    table.insert(r.results, {type="item", name=refractory, amount=max_count, catalyst_amount=max_count,
+    table.insert(r.results, {type="item", name=refractory, amount=refractory_amount, catalyst_amount=refractory_amount,
         probability=get_probability(#refractories)})
   end
 end
@@ -206,11 +212,12 @@ end
 if util.me.founding_plates() then
   local new_recipes = {}
   for name, recipe in pairs(data.raw.recipe) do 
-    if recipe.category ~= "smelting" then goto continue end
+    if not (recipe.category == "smelting" or (mods["space-exploration"] and recipe.category == "casting")) then goto continue end
     if (name == "steel-plate" or
         name == "imersium-plate" or
+        name == "tungsten-carbide" or  -- exclude base recipe but not casting recipe
         name == "se-naquium-ingot") then goto continue end
-    local new_recipe = make_recipe(recipe)
+    local new_recipe = make_recipe(recipe )
     if new_recipe then
       table.insert(new_recipes, new_recipe)
     end

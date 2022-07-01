@@ -19,3 +19,4 @@ See LICENSE
 ### Localization
 
 - [x2605](https://github.com/x2605) (ko)
+- [Sakuro](https://github.com/sakuro) (ja)

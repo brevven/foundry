@@ -114,3 +114,5 @@ data:extend({
   },
 
 })
+
+futil.add_crafting_category("assembling-machine", "foundry", "basic-founding")

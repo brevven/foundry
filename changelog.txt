@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+Date: 2022-07-05
+  Changes:
+    - Support for Tin
+    - Add basic founding recipe category. Pre-founding-tech recipes in this category can be crafted
+      by hand.
+    - Minor restructure of refractory recipes (should have no effect)
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 2022-07-01
   Changes:

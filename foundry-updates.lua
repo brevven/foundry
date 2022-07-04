@@ -15,6 +15,8 @@ if util.me.enable() then
 
   util.set_to_founding("cermet")  -- from zirconium
   util.set_to_founding("crucible") -- from graphite
+
+  util.set_category("solder", "basic-founding")
 else
   -- If we're not using Foundry buildings, add founding recipes to assemblers in vanilla, or furnaces in K2
   local sought = mods.Krastorio2 and "smelting" or "crafting" 

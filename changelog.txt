@@ -4,7 +4,8 @@ Date: 2022-07-05
   Changes:
     - Support for Tin
     - Add basic founding recipe category. Pre-founding-tech recipes in this category can be crafted
-      by hand.
+      by hand. In some mod loadouts there will indeed be recipes that can only be crafted by hand
+      until founding is researched.
     - Minor restructure of refractory recipes (should have no effect)
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0

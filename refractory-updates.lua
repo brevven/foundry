@@ -176,8 +176,15 @@ function make_ingredients_and_products(r, name)
       if refractory_amount > 25 then refractory_amount = refractory_amount / 25 end
   end
   for i, refractory in pairs(refractories) do
+    for j, existing in pairs(r.ingredients) do
+      if existing[1] == refractory or existing.name == refractory then
+        log("Warning: "..name.." refractory recipe recipe unbalanced due to skipped ingredients")
+        goto skip
+      end
+    end
     table.insert(r.ingredients, {refractory, refractory_amount})
   end
+  ::skip::
 
   for i, result in pairs(r.results) do
     if result[1] and check_name(result[1]) then

@@ -49,24 +49,12 @@ data:extend({
       layers =
       {
         {
-          -- TODO make a non-hr version
-          filename = "__bzfoundry__/graphics/entity/hr-electric-foundry.png",
+          filename = "__bzfoundry__/graphics/entity/hr-electric-foundry-base.png",
           priority = "high",
-          width = 280,
-          height = 239,
+          width = 512,
+          height = 512,
           frame_count = 1,
-          shift = util.by_pixel(8, 4),
-          scale = 0.5,
-          hr_version =
-          {
-            filename = "__bzfoundry__/graphics/entity/hr-electric-foundry.png",
-            priority = "high",
-            width = 280,
-            height = 239,
-            frame_count = 1,
-            shift = util.by_pixel(8, 4),
-            scale = 0.5,
-          }
+          scale = 0.38
         },
       }
     },
@@ -79,79 +67,23 @@ data:extend({
         west_position = {0.0, 0.0},
         animation =
         {
-          filename = "__bzfoundry__/graphics/entity/hr-electric-foundry-animation.png",
+          filename = "__bzfoundry__/graphics/entity/hr-foundry-animation.png",
           priority = "extra-high",
-          animation_speed = 0.05,
-          line_length = 4,
-          width = 280,
-          height = 239,
-          frame_count = 4,
-          axially_symmetrical = false,
-          direction_count = 1,
-          shift = util.by_pixel(8, 4),
-          scale = 0.5,
-          hr_version =
-          {
-            filename = "__bzfoundry__/graphics/entity/hr-electric-foundry-animation.png",
-            priority = "extra-high",
-            animation_speed = 0.05,
-            line_length = 4,
-            width = 280,
-            height = 239,
-            frame_count = 4,
-            axially_symmetrical = false,
-            direction_count = 1,
-            shift = util.by_pixel(8, 4),
-            scale = 0.5,
-          }
+          line_length = 3,
+          lines_per_file = 3,
+          width = 512,
+          height = 512,
+          frame_count = 9,
+          shift = util.by_pixel(0, 0),
+          animation_speed = 0.2,
+          scale=0.38,
         },
-      },
-      {
-        fadeout = true,
-        draw_as_light = true,
-        effect = "flicker",
-        animation =
-        {
-          filename = "__bzfoundry__/graphics/entity/electric-foundry-glow.png",
-          priority = "extra-high",
-          width = 25,
-          height = 29,
-          frame_count = 1,
-          shift = util.by_pixel(0, 36),
+        light = {
+          type = "basic",
+          intensity = 1,
+          size = 12,
+          color = {r=0.78 ,g=0.5 ,b=0.09 },
         }
-      },
-      {
-        draw_as_light = true,
-        draw_as_sprite = false,
-        fadeout = true,
-        effect = "flicker",
-        animation =
-        {
-          filename = "__base__/graphics/entity/steel-furnace/steel-furnace-ground-light.png",
-          priority = "high",
-          line_length = 1,
-          draw_as_sprite = false,
-          width = 78,
-          height = 64,
-          frame_count = 1,
-          direction_count = 1,
-          shift = util.by_pixel(0, 72),
-          blend_mode = "additive",
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/steel-furnace/hr-steel-furnace-ground-light.png",
-            priority = "high",
-            line_length = 1,
-            draw_as_sprite = false,
-            width = 152,
-            height = 126,
-            frame_count = 1,
-            direction_count = 1,
-            shift = util.by_pixel(1, 72),
-            blend_mode = "additive",
-            scale = 0.5,
-          }
-        },
       },
     },
 

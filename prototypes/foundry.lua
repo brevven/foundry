@@ -13,7 +13,7 @@ data:extend({
     type = "item",
     name = "foundry",
     icon = "__bzfoundry__/graphics/icons/foundry.png",
-    icon_size = 64,
+    icon_size = 128,
     subgroup = "founding-machines",
     order = "z[foundry]",
     place_result = "foundry",

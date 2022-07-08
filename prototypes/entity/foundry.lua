@@ -56,22 +56,12 @@ data:extend({
       layers =
       {
         {
-          filename = "__bzfoundry__/graphics/entity/foundry.png",
+          filename = "__bzfoundry__/graphics/entity/hr-foundry-base.png",
           priority = "high",
-          width = 140,
-          height = 120,
+          width = 512,
+          height = 512,
           frame_count = 1,
-          shift = util.by_pixel(8, 4),
-          hr_version =
-          {
-            filename = "__bzfoundry__/graphics/entity/hr-foundry.png",
-            priority = "high",
-            width = 280,
-            height = 239,
-            frame_count = 1,
-            shift = util.by_pixel(8, 4),
-            scale = 0.5
-          }
+          scale = 0.38
         },
       }
     },
@@ -84,29 +74,16 @@ data:extend({
         west_position = {0.0, 0.0},
         animation =
         {
-          filename = "__base__/graphics/entity/stone-furnace/hr-stone-furnace-fire.png",
+          filename = "__bzfoundry__/graphics/entity/hr-foundry-animation.png",
           priority = "extra-high",
-          line_length = 8,
-          width = 41,
-          height = 100,
-          frame_count = 48,
-          axially_symmetrical = false,
-          direction_count = 1,
-          shift = util.by_pixel(-1, 9),
-          scale=1.1,
-          hr_version =
-          {
-            filename = "__base__/graphics/entity/stone-furnace/hr-stone-furnace-fire.png",
-            priority = "extra-high",
-            line_length = 8,
-            width = 41,
-            height = 100,
-            frame_count = 48,
-            axially_symmetrical = false,
-            direction_count = 1,
-            shift = util.by_pixel(-1, 9),
-            scale=1.1,
-          }
+          line_length = 3,
+          lines_per_file = 3,
+          width = 512,
+          height = 512,
+          frame_count = 9,
+          shift = util.by_pixel(0, 0),
+          animation_speed = 0.2,
+          scale=0.38,
         },
       }
     },

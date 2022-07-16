@@ -223,6 +223,7 @@ if util.me.founding_plates() then
     if (name == "steel-plate" or
         name == "imersium-plate" or
         name == "tungsten-carbide" or  -- exclude base recipe but not casting recipe
+        (name == "glass" and mods.bztin) or -- exclude glass when tin is in use, thematically
         name == "se-naquium-ingot") then goto continue end
     local new_recipe = make_recipe(recipe )
     if new_recipe then

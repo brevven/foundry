@@ -1,8 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.4
-Date: 2022-07-16
+Date: 2022-07-25
   Changes:
     - ru locale thanks to Pergamum663
+  Fixes:
+    - With tin enabled, other machines set to do founding can now do solder or aai glass.
+    - Clean up some logging
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.3
 Date: 2022-07-16

@@ -2,6 +2,10 @@ local me =  {}
 
 me.name = "bzfoundry"
 
+function me.basic_founding()
+  return mods.bztin or mods.bzaluminum
+end
+
 function me.founding_plates()
   return me.get_setting("bzfoundry-plates") == "yes"
 end

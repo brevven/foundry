@@ -20,23 +20,30 @@ if util.me.enable() then
 else
   -- If we're not using Foundry buildings, add founding recipes to assemblers in vanilla, or furnaces in K2
   local sought = mods.Krastorio2 and "smelting" or "crafting" 
-  log ("looking for "..sought)
   for i, machine in pairs(data.raw["assembling-machine"]) do
-    log(serpent.dump(machine))
     for j, category in pairs(machine.crafting_categories) do
       if category == sought then
-        log ("found  "..category)
         util.add_crafting_category("assembling-machine", machine.name, "founding")
+        if util.me.basic_founding() then
+          util.add_crafting_category("assembling-machine", machine.name, "basic-founding")
+        end
         break
       end
     end
   end
   util.add_crafting_category("assembling-machine", "industrial-furnace", "founding")
   util.add_crafting_category("assembling-machine", "kr-advanced-furnace", "founding")
+  if util.me.basic_founding() then
+    util.add_crafting_category("assembling-machine", "industrial-furnace", "basic-founding")
+    util.add_crafting_category("assembling-machine", "kr-advanced-furnace", "basic-founding")
+  end
 end
 
 for i, machine in pairs(util.me.get_other_machines()) do
   log("Allowing "..machine.." to handle founding")
   util.add_crafting_category("assembling-machine", machine, "founding")
+  if util.me.basic_founding() then
+    util.add_crafting_category("assembling-machine", machine, "basic-founding")
+  end
 end
 

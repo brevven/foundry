@@ -19,6 +19,7 @@ function me.enable()
 end
 
 function me.carbon()
+  if me.get_setting("bz-all-intermediates") then return "coke" end
   return me.get_setting("bzfoundry-hydrocarbon")
 end
 

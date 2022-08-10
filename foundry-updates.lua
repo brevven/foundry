@@ -8,7 +8,7 @@ if util.me.enable() then
 
   util.set_to_founding("tungsten-carbide")
   util.add_ingredient("tungsten-carbide", util.me.carbon(), 1)
-
+  util.set_to_founding("cuw")
 
   util.set_to_founding("silicon")
   util.add_ingredient("silicon", util.me.carbon(), 1)

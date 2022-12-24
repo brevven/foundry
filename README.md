@@ -22,3 +22,4 @@ See LICENSE
 - [Sakuro](https://github.com/sakuro) (ja)
 - [Pergamum663](https://github.com/Pergamum663) (ru)
 - [RiCZrd](https://mods.factorio.com/user/RiCZrd) (cs)
+- [sunnytan53](https://github.com/sunnytan53) (zh-CN)

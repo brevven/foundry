@@ -16,3 +16,10 @@ if data.raw.item["coke"] and not mods.Krastorio2 then
     deadlock_crating.add_crate("coke", "deadlock-crating-1")
   end
 end
+
+
+util.add_to_product("vtk-deepcore-mining-ore-chunk-refining-coal-focus", "vtk-deepcore-mining-coal-chunk", 8)
+util.add_to_product("vtk-deepcore-mining-ore-chunk-refining", "vtk-deepcore-mining-coal-chunk", 10)
+util.add_to_product("vtk-deepcore-mining-ore-chunk-refining-no-uranium", "vtk-deepcore-mining-coal-chunk", 10)
+util.set_vtk_dcm_ingredients()
+

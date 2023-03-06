@@ -1,7 +1,6 @@
 -- WARNING WARNING WARNING
 -- This file will be overwritten in mod zipfiles, edit bzlib/data-util.lua
 -- WARNING WARNING WARNING
---
 
 local me = require("me")
 local util = {}
@@ -312,6 +311,21 @@ function util.add_unlock(technology_name, recipe)
   util.add_effect(technology_name, {type="unlock-recipe", recipe=recipe})
 end
 
+-- Check if a tech unlocks a recipe
+function util.check_unlock(technology_name, recipe)
+  local technology = data.raw.technology[technology_name]
+  if technology and technology.effects then
+    for i, effect in pairs(technology.effects) do
+      if effect.type == "unlock-recipe" and effect.recipe == recipe_name then
+        return true
+      end
+    end
+  end
+  return false
+end
+
+
+
 -- remove recipe unlock effect from a given technology, multiple times if necessary
 function util.remove_recipe_effect(technology_name, recipe_name)
     local technology = data.raw.technology[technology_name]
@@ -531,6 +545,21 @@ function util.get_amount(recipe_name, product)
   return 0
 end
 
+-- Get the count of results
+function util.get_result_count(recipe_name, product)
+  if not product then product = recipe_name end
+  local recipe = data.raw.recipe[recipe_name]
+  if recipe then
+    if recipe.normal and recipe.normal.results then
+      return #(recipe.normal.results)
+    elseif recipe.results then
+      return #(recipe.results)
+    end
+    return 1
+  end
+  return 0
+end
+
 -- Replace one ingredient with another in a recipe
 --    Use amount to set an amount. If that amount is a multiplier instead of an exact amount, set multiply true.
 function util.replace_ingredient(recipe_name, old, new, amount, multiply, options)
@@ -687,6 +716,8 @@ function multiply_recipe(recipe, multiple)
   if recipe then
     if recipe.energy_required then
       recipe.energy_required = recipe.energy_required * multiple
+    else
+      recipe.energy_required = 0.5 * multiple  -- 0.5 is factorio default
     end
     if recipe.result_count then
       recipe.result_count = recipe.result_count * multiple
@@ -913,6 +944,23 @@ function util.set_item_subgroup(item, subgroup, options)
   end
 end
 
+function util.add_icon(recipe_name, icon, options)
+  if not should_force(options) and bypass(recipe_name) then return end
+  if data.raw.recipe[recipe_name] then
+    me.add_modified(recipe_name)
+    if not (data.raw.recipe[recipe_name].icons and #(data.raw.recipe[recipe_name].icons) > 0) then
+      data.raw.recipe[recipe_name].icons = {{
+        icon=data.raw.recipe[recipe_name].icon,
+        icon_size=data.raw.recipe[recipe_name].icon_size,
+        icon_mipmaps=data.raw.recipe[recipe_name].icon_mipmaps,
+      }}
+      data.raw.recipe[recipe_name].icon = nil
+      data.raw.recipe[recipe_name].icon_size = nil
+    end
+    table.insert(data.raw.recipe[recipe_name].icons, icon)
+  end
+end
+
 -- Set recipe icons
 function util.set_icons(recipe_name, icons, options)
   if not should_force(options) and bypass(recipe_name) then return end
@@ -933,6 +981,19 @@ function util.set_item_icons(item_name, icons)
   end
 end
 
+-- Gets an item or fluid icon
+function util.get_item_or_fluid_icon(name)
+  icon = ""
+  if data.raw.item[name] then 
+    icon = data.raw.item[name].icon 
+    if not icon then icon = data.raw.item[name].icons[1].icon end
+  elseif data.raw.fluid[name] then
+    icon = data.raw.fluid[name].icon 
+    if not icon then icon = data.raw.fluid[name].icons[1].icon end
+  end
+  return icon
+end
+
 function util.set_to_founding(recipe, options)
   util.set_category(recipe, "founding", options)
   util.set_subgroup(recipe, "foundry-intermediate", options)
@@ -950,7 +1011,8 @@ function util.add_crafting_category(entity_type, entity, category)
    end
 end
 
-function util.add_to_ingredient(recipe, ingredient, amount)
+function util.add_to_ingredient(recipe, ingredient, amount, options)
+  if not should_force(options) and bypass(recipe_name) then return end
   if data.raw.recipe[recipe] then
     add_to_ingredient(data.raw.recipe[recipe], ingredient, amount)
     add_to_ingredient(data.raw.recipe[recipe].normal, ingredient, amount)
@@ -1101,7 +1163,7 @@ function remove_prior_unlocks(tech, recipe)
     util.remove_recipe_effect(tech, recipe)
     if technology.prerequisites then
       for i, prerequisite in pairs(technology.prerequisites) do
-        -- log("BZZZ removing prior unlocks for " .. tech ..", checking " .. prerequisite) -- Handy Debug :|
+        log("BZZZ removing prior unlocks for " .. recipe .. " from " .. tech ..", checking " .. prerequisite) -- Handy Debug :|
         remove_prior_unlocks(prerequisite, recipe)
       end
     end

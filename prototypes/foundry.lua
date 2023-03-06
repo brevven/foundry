@@ -43,8 +43,10 @@ data:extend({
     },
     order = "foundry",
   },
-   
 })
+if util.me.woodcoke() then
+  util.add_unlock("foundry", "woodcoke")
+end
 
 if mods.Krastorio2 then
   util.add_prerequisite("foundry", "kr-stone-processing")

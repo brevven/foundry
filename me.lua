@@ -6,6 +6,10 @@ function me.basic_founding()
   return mods.bztin or mods.bzaluminum
 end
 
+function me.woodcoke()
+  return me.get_setting("bzfoundry-woodcoke")
+end
+
 function me.founding_plates()
   return me.get_setting("bzfoundry-plates") == "yes"
 end

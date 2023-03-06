@@ -31,6 +31,23 @@ data:extend({
     enabled=false,
   },
 })
+  if util.me.woodcoke() then
+    data:extend({
+      {
+        type = "recipe",
+        name = "woodcoke",
+        result = "coke",
+        category = "founding",
+        ingredients = {{"coal", 1}, {"wood", 2}},
+        energy_required = 3.2,
+        enabled=false,
+        icons = {
+          { icon = "__bzfoundry__/graphics/icons/coke-icon.png", icon_size = 128},
+          { icon = "__base__/graphics/icons/wood.png", icon_size = 64, scale=0.25, shift={8,-8}},
+        },
+      },
+    })
+  end
 elseif util.me.carbon() == "solid-fuel" then
 data:extend({
   {
@@ -43,4 +60,21 @@ data:extend({
     enabled=false,
   },
 })
+  if util.me.woodcoke() then
+    data:extend({
+      {
+        type = "recipe",
+        name = "woodcoke",
+        result = "solid-fuel",
+        category = "founding",
+        ingredients = {{"coal", 3}, {"wood", 2}},
+        energy_required = 3.2,
+        enabled=false,
+        icons = {
+          { icon = "__base__/graphics/icons/solid-fuel.png", icon_size = 64, icon_mipmaps=4},
+          { icon = "__base__/graphics/icons/wood.png", icon_size = 64, scale=0.25, shift={8,-8}, icon_mipmaps=4},
+        },
+      },
+    })
+  end
 end

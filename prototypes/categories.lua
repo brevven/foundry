@@ -11,6 +11,8 @@ if util.me.basic_founding() then
     { type = "recipe-category", name = "basic-founding"},
   })
   for i, character in pairs(data.raw.character) do
-    table.insert(character.crafting_categories, "basic-founding")
+    if character.crafting_categories then
+      table.insert(character.crafting_categories, "basic-founding")
+    end
   end
 end

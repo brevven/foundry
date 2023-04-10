@@ -96,6 +96,7 @@ function make_recipe(recipe)
     log("Attempting to make refractory recipe for " .. recipe.name)
     local r = futil.table.deepcopy(recipe)
     r.name = r.name .. "-refractory"
+    r.main_product = found_result
     r.result = nil
     r.result_count = nil
     r.enabled = false

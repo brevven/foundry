@@ -10,6 +10,7 @@ data:extend({
     type = "assembling-machine",
     name = "foundry",
     fast_replaceable_group = "foundry",
+    next_upgrade = "electric-foundry",
     icon = "__bzfoundry__/graphics/icons/foundry.png",
     icon_size = 64,
     flags = {"placeable-neutral", "placeable-player", "player-creation"},

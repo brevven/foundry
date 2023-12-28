@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.12
+Date: 2023-04-18
+  Features:
+    - Default upgrade planner now upgrades foundry to electric foundry.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.11
   Fixes:
     - Fix some minor recipe ordering issues

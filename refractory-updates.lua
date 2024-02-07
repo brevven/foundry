@@ -101,7 +101,7 @@ function make_recipe(recipe)
     r.result_count = nil
     r.enabled = false
     r.category = recipe.category == "casting" and "casting" or "founding"
-    r.subgroup = data.raw.item[found_result].subgroup
+    r.subgroup = data.raw.item[found_result] and data.raw.item[found_result].subgroup or "foundry-intermediate"
     icons = rusty_icons.of(data.raw.recipe[recipe.name])
     table.insert(
         icons,

@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.13
+Date: 2023-12-28
+  Changes:
+    - Some recipes moved in crafting menus, they were defaulting to appearing at the top:
+      - In vanilla: recipes for certain intermediates created in foundries moved after 
+        "raw-material" recipes (such as most plates, etc), and before "intermediate-product" 
+        recipes (eg circuits). There's not a perfect place for this right now, but this seems to be
+        thematically a decent place to put it.
+      - In Space Exploration (SE): Similar to above, but after gears, sticks, etc
+      - In vanilla and SE: recipes for foundry entities moved after furnace entities but before 
+        assemblers. This seems to be the right location, thematically.
+  Localization:
+    - ja locale updates thanks to Sakuro
+---------------------------------------------------------------------------------------------------
 Version: 0.2.12
 Date: 2023-04-18
   Features:

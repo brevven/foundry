@@ -2,8 +2,9 @@ local util = require("data-util")
 
 data:extend({
   { type = "recipe-category", name = "founding"},
-  { type = "item-subgroup", name = "founding-machines", group = "production"},
-  { type = "item-subgroup", name = "foundry-intermediate", group = "intermediate-products"},
+  { type = "item-subgroup", name = "founding-machines", group = "production", order = "d-f"},
+  { type = "item-subgroup", name = "foundry-intermediate", group = "intermediate-products",
+    order = util.se6() and "a-b-z" or "c-z"},
 })
 
 if util.me.basic_founding() then
